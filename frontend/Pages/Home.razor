@@ -1,4 +1,48 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<h2 class="page-title">Activités</h2>
 
+<div class="actus-container">
+  @foreach (var actu in Actus)
+  {
+    <div class="actu-card">
+      <h3>@actu.Titre</h3>
+      <br><br>
+      <p>@actu.Description</p>
+    </div>
+  }
+</div>
+
+@code {
+
+  // Modèle Actu (local, suffisant pour affichage)
+  public class Actu
+  {
+    public int Id { get; set; }
+    public string Titre { get; set; } = "";
+    public string Description { get; set; } = "";
+  }
+
+  // Données affichées
+  private List<Actu> Actus = new()
+{
+new Actu
+{
+Id = 1,
+Titre = "Actus 1",
+Description = "Description"
+},
+new Actu
+{
+Id = 2,
+Titre = "Actus 2",
+Description = "Description"
+},
+new Actu
+{
+Id = 3,
+Titre = "Actus 3",
+Description = "Description"
+}
+};
+}
