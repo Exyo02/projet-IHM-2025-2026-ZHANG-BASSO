@@ -7,15 +7,33 @@
 <main>
     <section class="filtre">
         <h3>Filtrer les résultats</h3>
-        <input type="text" id="searchBar" placeholder="Recherche de stage">
+        <input type="text" id="searchBar" placeholder="Recherche de stage" @bind="searchTitle">
+        <br><br>
+        <label for="">Formation</label>
+        <br>
+        <select name="formations" id="formations" @bind="@formFilter">
+            <option value="">Selectionner</option>
+            <option value="Informatique">Informatique</option>
+            <option value="Doit">Droit</option>
+        </select>
+        <br><br>
+        <label for="">Laboratoire</label>
+        <br>
+        <select name="labos" id="labos" @bind="@laboFilter">
+            <option value="">Selectionner</option>
+            <option value="Labo1">Labo1</option>
+            <option value="Labo2">Labo2</option>
+            <option value="Labo3">Labo3</option>
+            <option value="Labo4">Labo4</option>
+        </select>
         <br><br>
         <label for="">Niveau d'étude</label>
         <br>
-        <input type="range">
+        <input type="range" min="1" max="5" @bind="@niveauFilter">
         <br><br>
         <label for="">Durée du stage</label>
         <br>
-        <input type="range">
+        <input type="range" min="3" max="6" @bind="@dureeFilter">
     </section>
     <section class="listeStage">
         <h2>Que recherchez-vous?</h2>
@@ -34,14 +52,20 @@
             </thead>
             <tbody>
                 @foreach(Offre offre in offres){
-                    <tr @onclick="()=>NavPage(offre.Id)">
-                        <td>@offre.Titre</td>
-                        <td>@offre.Domaine</td>
-                        <td>@offre.Laboratoire</td>
-                        <td>@offre.Duree mois</td>
-                        <td>BAC+@offre.NbAnnees</td>
-                        <td>@offre.NomResponsable</td>
-                    </tr>
+                    @if(offre.Duree <= @dureeFilter
+                        && offre.NbAnnees <= @niveauFilter
+                        && (@laboFilter=="" || offre.Laboratoire == @laboFilter)
+                        && (@formFilter=="" || offre.Domaine == @formFilter)
+                        && (@searchTitle=="" || offre.Titre.Contains(@searchTitle))){
+                        <tr @onclick="()=>NavPage(offre.Id)">
+                            <td>@offre.Titre</td>
+                            <td>@offre.Domaine</td>
+                            <td>@offre.Laboratoire</td>
+                            <td>@offre.Duree mois</td>
+                            <td>BAC+@offre.NbAnnees</td>
+                            <td>@offre.NomResponsable</td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>
@@ -49,6 +73,11 @@
 </main>
 @code{
     private List<Offre>? offres;
+    public int dureeFilter=6;
+    public int niveauFilter=5;
+    public string laboFilter="";
+    public string formFilter="";
+    public string searchTitle="";
     
     protected override void OnInitialized(){
         offres = OffreService.GetOffres();
