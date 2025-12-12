@@ -1,4 +1,16 @@
 ﻿@page "/"
+@inject frontend.Services.ActuService ActuService
 
-<PageTitle>Home</PageTitle>
+<h2 class="actus-title">A la une</h2>
 
+<div class="actus-wrapper">
+  <div class="actus-container">
+    @foreach (var actu in ActuService.GetActus())
+    {
+      <div class="actu-card">
+        <h3>@actu.Titre</h3>
+        <p>@actu.Description</p>
+      </div>
+    }
+  </div>
+</div>

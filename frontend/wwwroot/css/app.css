@@ -188,3 +188,36 @@ input[type="text"]{
 .descDetail{
     font-size: medium;
 }
+
+/* css de Acte */
+.actus-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #333;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+
+.actus-container {
+    display: flex;
+    flex-direction: row;       
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: nowrap;          
+}
+
+
+.actu-card {
+    flex: 1;                    
+    min-width: 200px;
+    padding: 20px;
+    background-color: #e5e5e5;
+    border-radius: 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
