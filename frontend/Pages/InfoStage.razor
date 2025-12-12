@@ -1,5 +1,6 @@
 @page "/infostage/{id:int}"
 @inject frontend.Services.OffreService OffreService
+@inject frontend.Services.FavorisService FavorisService
 
 
 <PageTitle>InfoStage</PageTitle>
@@ -39,7 +40,7 @@
         </div>
     </section>
     <section>
-        <button class="addfav">Ajouter aux favoris</button>
+        <button class="addfav" @onclick="AddFavoris">Ajouter aux favoris</button>
     </section>
 </main>
 
@@ -54,5 +55,8 @@
 
     protected override void OnInitialized(){
         offre = OffreService.GetOffre(id);
+    }
+    public void AddFavoris(){
+        FavorisService.AddFavoris(offre);
     }
 }
