@@ -5,13 +5,13 @@ namespace frontend.Services
         List<Offre> offres = new List<Offre>();
         public OffreService()
         {
-            offres.Add(new Offre(0,"Titre",6,"Informatique", "3 rue de la place d'en face","Lago","Dupond",
+            offres.Add(new Offre(0,"Titre",6,5,"Informatique", "3 rue de la place d'en face","Labo3","Dupond",
             """
             Lorem ipsum dolor sit amet. Rem reprehenderit ipsa ex quia ipsum nam autem vitae est quod error et saepe vero. Eum nihil quia est expedita incidunt a fugiat fugiat.
 
             Sit repellendus nostrum et inventore cumque At beatae voluptas in illo saepe et ipsa molestiae in voluptatibus laborum. In voluptate deleniti eum laboriosam minima aut quasi commodi aut dignissimos ullam. Aut recusandae eius vel blanditiis molestias qui laborum enim non veniam consequatur?
             """));
-            offres.Add(new Offre(1,"Titre",6,"Informatique", "3 rue de la place d'en face","Lago","Dupond",
+            offres.Add(new Offre(1,"Titre",3,2,"Informatique", "3 rue de la place d'en face","Labo1","Dupond",
             """
             Lorem ipsum dolor sit amet. Rem reprehenderit ipsa ex quia ipsum nam autem vitae est quod error et saepe vero. Eum nihil quia est expedita incidunt a fugiat fugiat.
             

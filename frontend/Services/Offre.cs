@@ -11,12 +11,13 @@ public class Offre{
     public string Description {get;set;}
 
 
-    public Offre(int id,string titre, int duree,string domaine,
+    public Offre(int id,string titre, int duree, int nbAnnees, string domaine,
                  string adress,string labo,string responsable,
                  string description){
         Id = id;
         Titre = titre;
         Duree = duree;
+        NbAnnees = nbAnnees;
         Domaine = domaine;
         Adress = adress;
         Laboratoire = labo;
