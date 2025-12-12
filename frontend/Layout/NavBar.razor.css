@@ -1,0 +1,21 @@
+nav{
+    display: flex;
+    align-items: center;
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+a{
+    margin-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    font-size: larger;
+    border-radius: 15px;
+    text-decoration: none;
+    background-color: #7080b0;
+    color: black;
+}

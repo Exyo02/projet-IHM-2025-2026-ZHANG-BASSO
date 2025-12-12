@@ -1,0 +1,36 @@
+@page "/favoris"
+@inject frontend.Services.OffreService FavorisService
+
+
+<PageTitle>Favoris</PageTitle>
+
+<table>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Laboratoire</th>
+            <th>Responsable</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Offre offre in offres){
+            <tr>
+                <td>@offre.Titre</td>
+                <td>@offre.Laboratoire</td>
+                <td>@offre.NomResponsable</td>
+                <td>
+                    <button class="deleteOffres">Supprimer</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code{
+    private List<Offre>? offres;
+    
+    protected override void OnInitialized(){
+        offres = FavorisService.GetOffres();
+    }
+}
