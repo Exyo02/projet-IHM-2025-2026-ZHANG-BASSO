@@ -1,5 +1,5 @@
 @page "/favoris"
-@inject frontend.Services.OffreService FavorisService
+@inject frontend.Services.FavorisService FavorisService
 
 
 <PageTitle>Favoris</PageTitle>
@@ -20,7 +20,7 @@
                 <td>@offre.Laboratoire</td>
                 <td>@offre.NomResponsable</td>
                 <td>
-                    <button class="deleteOffres">Supprimer</button>
+                    <button class="deleteOffres" @onclick="()=>DeleteOffre(offre)">Supprimer</button>
                 </td>
             </tr>
         }
@@ -31,6 +31,14 @@
     private List<Offre>? offres;
     
     protected override void OnInitialized(){
+        InitialisationListe();
+    }
+    public void InitialisationListe(){
         offres = FavorisService.GetOffres();
+    }
+
+    public void DeleteOffre(Offre offre){
+        FavorisService.DeleteFavoris(offre);
+        InitialisationListe();
     }
 }
