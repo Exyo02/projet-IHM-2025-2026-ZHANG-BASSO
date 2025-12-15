@@ -1,0 +1,27 @@
+@page "/login"
+
+@inject frontend.Services.LoginService LoginService
+@inject NavigationManager Nav
+
+
+<PageTitle>Connection</PageTitle>
+
+
+<div class="connection">
+    <h2>Veuillez vous connecter</h2>
+    <label for="">Identifiant</label>
+    <input type="text" placeholder="Pseudonyme ou adresse email" @bind="@currentLogin">
+    <label for="">Mot de passe</label>
+    <input type="password" placeholder="Mot de passe" @bind="@currentMDP">
+    <input type="button" class="connectionBtn" @onclick="verification" value="Connection">
+</div>
+
+@code{
+    public string currentLogin="", currentMDP="";
+    public void verification(){
+        bool result = LoginService.verification(currentLogin,currentMDP);
+        if (result) {
+            Nav.NavigateTo("/");
+        }
+    }
+}

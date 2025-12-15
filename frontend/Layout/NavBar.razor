@@ -1,4 +1,6 @@
-﻿<nav class="top-nav">
+@inject frontend.Services.LoginService LoginService
+
+<nav class="top-nav">
     <div class="nav-left">
         <img src="/logo.png" alt="Logo" class="logo" />
         <span class="brand">CampuStage</span>
@@ -8,9 +10,35 @@
         <a href="/">Accueil</a>
         <a href="/stages">Offres de stage</a>
         <a href="/favoris">Favoris</a>
+        @if(!@LoginService.state){
+            <a href="/login">
+                Se connecter
+            </a>
+        }else{
+            <a href="/" @onclick="deconnection">
+                Se déconnecter
+            </a>
+        }
+    </div>
+
+    <div class="nav-right">
+
     </div>
 
     <div class="nav-right">
 
     </div>
 </nav>
+
+@code{
+    protected override void OnInitialized(){
+        LoginService.OnChange += StateHasChanged;
+    }
+
+    public void Dispose(){
+        LoginService.OnChange -= StateHasChanged;
+    }
+    public void deconnection(){
+        LoginService.deconnection();
+    }
+}

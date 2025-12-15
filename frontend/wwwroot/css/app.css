@@ -221,3 +221,16 @@ input[type="text"]{
     box-sizing: border-box;
 }
 
+.connection{
+    display: flex;
+    flex-direction: column;
+}
+.connectionBtn{
+    background-color: #0071c1;
+    color: white;
+    font-weight: 700;
+    font-size: larger;
+    width: 150px;
+    padding: 5px;
+    margin-top: 20px;
+}
