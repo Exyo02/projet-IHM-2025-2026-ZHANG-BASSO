@@ -44,3 +44,15 @@ a,
   display:flex;
   justify-content:flex-end;
 }
+
+.nav-center a:nth-child(2) {
+    background-color: #1b6ec2;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(27, 110, 194, 0.35);
+    transform: scale(1.05);
+}
+
+.nav-center a:nth-child(2):hover {
+    background-color: #155a9c;
+}
