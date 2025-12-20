@@ -44,11 +44,16 @@ et sont regroupés sur Google Drive.
 *https://drive.google.com/drive/u/0/folders/1-IEnWtaC_6uGulu_NTygyPBqYJFuQdNx?lfhs=2*
 
 ### Contenu du Drive :
-- `cahier_des_charges.pdf`*https://drive.google.com/file/d/1ykOf8HAhqF-cEnA9lKVnKh0XRl_Beahq/view?usp=sharing*
-- `Le_modele_de_l_utilisateur.pdf`*https://drive.google.com/file/d/1ittR_uucD1asTG3lfA0hqESLcjeq7qSq/view?usp=drive_link*
-- `Scenarios_Projet_IHM2.pdf`*https://drive.google.com/file/d/1ozfKOsSx8QJGL_kuWSjT6IFGJDenAalT/view?usp=drive_link*
-- `model_de_tache.drawio.pdf`*https://drive.google.com/file/d/11PhcBfLTiPcqLV-3TkiuwfC0p47gpzKT/view?usp=drive_link*
-- `Modèle d’interface abstraite / prototype papier`*https://www.canva.com/design/DAG5OItessc/Sjp9EFU13binyXUMlpriBA/edit*
+- `cahier_des_charges.pdf`
+  *https://drive.google.com/file/d/1ykOf8HAhqF-cEnA9lKVnKh0XRl_Beahq/view?usp=sharing*
+- `Le_modele_de_l_utilisateur.pdf`
+  *https://drive.google.com/file/d/1ittR_uucD1asTG3lfA0hqESLcjeq7qSq/view?usp=drive_link*
+- `Scenarios_Projet_IHM2.pdf`
+  *https://drive.google.com/file/d/1ozfKOsSx8QJGL_kuWSjT6IFGJDenAalT/view?usp=drive_link*
+- `model_de_tache.drawio.pdf`
+  *https://drive.google.com/file/d/11PhcBfLTiPcqLV-3TkiuwfC0p47gpzKT/view?usp=drive_link*
+- `Modèle d’interface abstraite / prototype papier`
+    *https://www.canva.com/design/DAG5OItessc/Sjp9EFU13binyXUMlpriBA/edit*
 
 ---
 
