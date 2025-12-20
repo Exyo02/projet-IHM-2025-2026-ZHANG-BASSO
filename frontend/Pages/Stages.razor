@@ -29,11 +29,17 @@
         <br><br>
         <label for="">Niveau d'étude</label>
         <br>
-        <input type="range" min="1" max="5" @bind="@niveauFilter">
+        <input type="range" min="1" max="5" @bind="@niveauFilter" @onmouseenter="()=>showNiveau = true" @onmouseleave="()=>showNiveau = false">
+        @if (showNiveau){
+            <span class="range-value">@niveauFilter</span>
+        }
         <br><br>
         <label for="">Durée du stage</label>
         <br>
-        <input type="range" min="3" max="6" @bind="@dureeFilter">
+        <input type="range" min="3" max="6" @bind="@dureeFilter" @onmouseenter="()=>showDuree = true" @onmouseleave="()=>showDuree = false">
+        @if (showDuree){
+            <span class="range-value">@dureeFilter</span>
+        }
     </section>
     <section class="listeStage">
         <h2>Que recherchez-vous?</h2>
@@ -78,6 +84,7 @@
     public string laboFilter="";
     public string formFilter="";
     public string searchTitle="";
+    public bool showDuree = false, showNiveau = false;
     
     protected override void OnInitialized(){
         offres = OffreService.GetOffres();
