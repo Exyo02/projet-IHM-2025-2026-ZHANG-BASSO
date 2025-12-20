@@ -6,10 +6,12 @@ namespace frontend.Services
         
         public void AddFavoris(Offre offre)
         {
+            offre.Favoris = true;
             offres.Add(offre);
         }
         public void DeleteFavoris(Offre offre)
         {
+            offre.Favoris = false;
             offres.Remove(offre);
         }
         public List<Offre> GetOffres()
