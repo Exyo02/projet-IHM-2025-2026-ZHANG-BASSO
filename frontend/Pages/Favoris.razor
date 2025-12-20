@@ -1,5 +1,6 @@
 @page "/favoris"
 @inject frontend.Services.FavorisService FavorisService
+@inject NavigationManager Nav
 
 
 <PageTitle>Favoris</PageTitle>
@@ -15,7 +16,7 @@
     </thead>
     <tbody>
         @foreach(Offre offre in offres){
-            <tr>
+            <tr class="stageLine" @onclick="()=>NavPage(offre.Id)">
                 <td>@offre.Titre</td>
                 <td>@offre.Laboratoire</td>
                 <td>@offre.NomResponsable</td>
@@ -40,5 +41,9 @@
     public void DeleteOffre(Offre offre){
         FavorisService.DeleteFavoris(offre);
         InitialisationListe();
+    }
+
+    private void NavPage(int id){
+        Nav.NavigateTo($"/infostage/{id}");
     }
 }

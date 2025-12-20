@@ -245,3 +245,13 @@ input[type="text"]{
     padding: 5px;
     margin-top: 20px;
 }
+
+.stageLine{
+    cursor: pointer;
+    background-color: white;
+}
+
+.stageLine:hover{
+    border: 2px solid black;
+    background-color: #dddddd;
+}

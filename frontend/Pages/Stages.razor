@@ -57,7 +57,7 @@
                         && (@laboFilter=="" || offre.Laboratoire == @laboFilter)
                         && (@formFilter=="" || offre.Domaine == @formFilter)
                         && (@searchTitle=="" || offre.Titre.Contains(@searchTitle))){
-                        <tr @onclick="()=>NavPage(offre.Id)">
+                        <tr class="stageLine" @onclick="()=>NavPage(offre.Id)">
                             <td>@offre.Titre</td>
                             <td>@offre.Domaine</td>
                             <td>@offre.Laboratoire</td>
