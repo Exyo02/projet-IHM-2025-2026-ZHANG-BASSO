@@ -4,7 +4,8 @@
   align-items:center;
   padding:16px 24px;
 }
-a{
+a,
+.logout-btn{
     margin-left: 30px;
     padding-top: 15px;
     padding-bottom: 15px;

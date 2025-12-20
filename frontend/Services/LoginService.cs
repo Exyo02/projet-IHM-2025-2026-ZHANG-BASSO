@@ -2,14 +2,15 @@ namespace frontend.Services
 {
     public class LoginService
     {
-        private string adressmail = "mail@mail.com";
-        private string motdepasse = "motdepasse";
-        public bool state =false;
+        // private string adressmail = "mail@mail.com";
+        // private string motdepasse = "motdepasse";
+        public bool state = false;
         public event Action? OnChange;
 
-        public bool verification(string mail,string mdp)
+        public bool verification(string mail, string mdp)
         {
-            state = adressmail==mail && motdepasse==mdp;
+            // state = adressmail==mail && motdepasse==mdp;
+            state = true;
             if (state)
             {
                 NotifyStateChanged();
@@ -17,7 +18,7 @@ namespace frontend.Services
             return state;
         }
 
-        private void NotifyStateChanged()=>OnChange?.Invoke();
+        private void NotifyStateChanged() => OnChange?.Invoke();
 
         public void deconnection()
         {
