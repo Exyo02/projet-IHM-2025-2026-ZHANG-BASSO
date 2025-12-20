@@ -9,6 +9,7 @@ public class Offre{
     public int NbAnnees {get;set;}
     public string NomResponsable {get;set;}
     public string Description {get;set;}
+    public bool Favoris {get;set;}
 
 
     public Offre(int id,string titre, int duree, int nbAnnees, string domaine,
@@ -23,5 +24,6 @@ public class Offre{
         Laboratoire = labo;
         NomResponsable = responsable;
         Description = description;
+        Favoris = false;
     }
 }

@@ -39,9 +39,11 @@
             <p class="descDetail">@offre.Description</p>
         </div>
     </section>
-    <section>
-        <button class="addfav" @onclick="AddFavoris">Ajouter aux favoris</button>
-    </section>
+    @if (!offre.Favoris){
+        <section>
+            <button class="addfav" @onclick="AddFavoris">Ajouter aux favoris</button>
+        </section>
+    }
 </main>
 
 
@@ -57,6 +59,7 @@
         offre = OffreService.GetOffre(id);
     }
     public void AddFavoris(){
+        offre.Favoris = true;
         FavorisService.AddFavoris(offre);
     }
 }

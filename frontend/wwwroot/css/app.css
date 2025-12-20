@@ -255,3 +255,10 @@ input[type="text"]{
     border: 2px solid black;
     background-color: #dddddd;
 }
+
+.range-value{
+    background-color: #333333;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
