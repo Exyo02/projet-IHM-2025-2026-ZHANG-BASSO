@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@inject frontend.Services.LoginService LoginService
+@inject NavigationManager Nav
 <div class="page">
     <NavBar />
 
@@ -8,3 +10,33 @@
         </article>
     </main>
 </div>
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        LoginService.OnChange += StateHasChanged;
+        CheckLogin();
+    }
+
+    protected override void OnParametersSet()
+    {
+        CheckLogin();
+    }
+
+    private void CheckLogin()
+    {
+        var currentUri = Nav.ToBaseRelativePath(Nav.Uri);
+
+        // Il faut se connexcter pour utiliser
+        if (!LoginService.state && currentUri != "login")
+        {
+            Nav.NavigateTo("/login", true);
+        }
+    }
+
+    public void Dispose()
+    {
+        LoginService.OnChange -= StateHasChanged;
+    }
+}

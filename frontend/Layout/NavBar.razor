@@ -1,4 +1,6 @@
 @inject frontend.Services.LoginService LoginService
+@inject NavigationManager Nav
+
 
 <nav class="top-nav">
     <div class="nav-left">
@@ -10,14 +12,15 @@
         <a href="/">Accueil</a>
         <a href="/stages">Offres de stage</a>
         <a href="/favoris">Favoris</a>
-        @if(!@LoginService.state){
-            <a href="/login">
-                Se connecter
-            </a>
-        }else{
-            <a href="/" @onclick="deconnection">
+        @if (!LoginService.state)
+        {
+            <a href="/login">Se connecter</a>
+        }
+        else
+        {
+            <button class="logout-btn" @onclick="Deconnection">
                 Se déconnecter
-            </a>
+            </button>
         }
     </div>
 
@@ -30,15 +33,19 @@
     </div>
 </nav>
 
-@code{
-    protected override void OnInitialized(){
+@code {
+    protected override void OnInitialized()
+    {
         LoginService.OnChange += StateHasChanged;
     }
 
-    public void Dispose(){
+    public void Dispose()
+    {
         LoginService.OnChange -= StateHasChanged;
     }
-    public void deconnection(){
+    private void Deconnection()
+    {
         LoginService.deconnection();
+        Nav.NavigateTo("/login", true);
     }
 }

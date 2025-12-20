@@ -16,11 +16,13 @@
     <input type="button" class="connectionBtn" @onclick="verification" value="Connection">
 </div>
 
-@code{
-    public string currentLogin="", currentMDP="";
-    public void verification(){
-        bool result = LoginService.verification(currentLogin,currentMDP);
-        if (result) {
+@code {
+    public string currentLogin = "", currentMDP = "";
+    public void verification()
+    {
+        bool result = LoginService.verification(currentLogin, currentMDP);
+        if (result)
+        {
             Nav.NavigateTo("/");
         }
     }
