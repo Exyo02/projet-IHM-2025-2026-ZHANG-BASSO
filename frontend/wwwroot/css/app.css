@@ -330,7 +330,7 @@ input[type="text"]{
     font-weight: 700;
 }
 
-.listeStage tr:hover {
+.stageLine:hover {
     background: #f2f4ff;
     cursor: pointer;
 }
