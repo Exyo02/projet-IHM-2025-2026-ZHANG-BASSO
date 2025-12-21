@@ -3,16 +3,18 @@
 @inject frontend.Services.LoginService LoginService
 @inject NavigationManager Nav
 
-<h2 class="actus-title">A la une</h2>
+<div class="home-main">
+  <h2 class="actus-title">A la une</h2>
 
-<div class="actus-wrapper">
-  <div class="actus-container">
-    @foreach (var actu in ActuService.GetActus())
-    {
-      <div class="actu-card">
-        <h3>@actu.Titre</h3>
-        <p>@actu.Description</p>
-      </div>
-    }
+  <div class="actus-wrapper">
+    <div class="actus-container">
+      @foreach (var actu in ActuService.GetActus())
+      {
+        <div class="actu-card">
+          <h3>@actu.Titre</h3>
+          <p>@actu.Description</p>
+        </div>
+      }
+    </div>
   </div>
 </div>

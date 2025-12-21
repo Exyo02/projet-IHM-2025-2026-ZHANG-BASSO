@@ -5,45 +5,53 @@
 
 <PageTitle>Favoris</PageTitle>
 
-<table>
-    <thead>
-        <tr>
-            <th>Titre</th>
-            <th>Laboratoire</th>
-            <th>Responsable</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(Offre offre in offres){
-            <tr class="stageLine" @onclick="()=>NavPage(offre.Id)">
-                <td>@offre.Titre</td>
-                <td>@offre.Laboratoire</td>
-                <td>@offre.NomResponsable</td>
-                <td>
-                    <button class="deleteOffres" @onclick="()=>DeleteOffre(offre)">Supprimer</button>
-                </td>
+<div class="favoris-layout">
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Laboratoire</th>
+                <th>Responsable</th>
+                <th>Action</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (Offre offre in offres)
+            {
+                <tr class="stageLine" @onclick="()=>NavPage(offre.Id)">
+                    <td>@offre.Titre</td>
+                    <td>@offre.Laboratoire</td>
+                    <td>@offre.NomResponsable</td>
+                    <td>
+                        <button class="deleteOffres" @onclick="()=>DeleteOffre(offre)"
+                            @onclick:stopPropagation="true">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-@code{
+@code {
     private List<Offre>? offres;
-    
-    protected override void OnInitialized(){
+
+    protected override void OnInitialized()
+    {
         InitialisationListe();
     }
-    public void InitialisationListe(){
+    public void InitialisationListe()
+    {
         offres = FavorisService.GetOffres();
     }
 
-    public void DeleteOffre(Offre offre){
+    public void DeleteOffre(Offre offre)
+    {
         FavorisService.DeleteFavoris(offre);
         InitialisationListe();
     }
 
-    private void NavPage(int id){
+    private void NavPage(int id)
+    {
         Nav.NavigateTo($"/infostage/{id}");
     }
 }
