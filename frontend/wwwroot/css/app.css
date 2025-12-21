@@ -432,3 +432,54 @@ input[type="text"]{
     align-items: start;
 }
 
+.favoris-layout {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 35px 45px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 26px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+    backdrop-filter: blur(6px);
+}
+
+.favoris-layout table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.favoris-layout thead th {
+    background-color: #e6e9f4;
+    font-weight: 700;
+    text-align: left;
+    padding: 14px 18px;
+}
+
+.favoris-layout tbody td {
+    background-color: white;
+    padding: 14px 18px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.favoris-layout .stageLine {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.favoris-layout .stageLine:hover {
+    background-color: #f2f5fb;
+}
+
+.favoris-layout .deleteOffres {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.favoris-layout .deleteOffres:hover {
+    background-color: #c9302c;
+}
+
