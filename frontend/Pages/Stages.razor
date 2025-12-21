@@ -9,36 +9,32 @@
         <section class="filtre">
             <h3>Filtrer les résultats</h3>
             <input type="text" id="searchBar" placeholder="Recherche de stage" @bind="searchTitle">
-            <br><br>
-            <label for="">Formation</label>
             <br>
+            <label for="">Formation</label>
             <select name="formations" id="formations" @bind="@formFilter">
-                <option value="">Selectionner</option>
+                <option value="">-- Selectionner --</option>
                 <option value="Informatique">Informatique</option>
                 <option value="Doit">Droit</option>
             </select>
-            <br><br>
-            <label for="">Laboratoire</label>
             <br>
+            <label for="">Laboratoire</label>
             <select name="labos" id="labos" @bind="@laboFilter">
-                <option value="">Selectionner</option>
+                <option value="">-- Selectionner --</option>
                 <option value="Labo1">Labo1</option>
                 <option value="Labo2">Labo2</option>
                 <option value="Labo3">Labo3</option>
                 <option value="Labo4">Labo4</option>
             </select>
-            <br><br>
-            <label for="">Niveau d'étude</label>
             <br>
+            <label for="">Niveau d'étude</label>
             <input type="range" min="1" max="5" @bind="@niveauFilter" @onmouseenter="()=>showNiveau = true"
                 @onmouseleave="()=>showNiveau = false">
             @if (showNiveau)
             {
                 <span class="range-value">@niveauFilter</span>
             }
-            <br><br>
-            <label for="">Durée du stage</label>
             <br>
+            <label for="">Durée du stage</label>
             <input type="range" min="3" max="6" @bind="@dureeFilter" @onmouseenter="()=>showDuree = true"
                 @onmouseleave="()=>showDuree = false">
             @if (showDuree)

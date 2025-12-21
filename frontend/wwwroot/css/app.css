@@ -483,3 +483,18 @@ input[type="text"]{
     background-color: #c9302c;
 }
 
+select{
+    padding: 5px 8px;
+    border-radius: 8px;
+    color: #1b6ec2;
+    font-weight: 700;
+    border: 2px solid #1b6ec2;
+}
+
+option{
+    font-weight: 700;
+}
+
+label{
+    margin-bottom: 5px;
+}
