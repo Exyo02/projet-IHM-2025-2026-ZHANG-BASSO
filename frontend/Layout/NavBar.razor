@@ -9,12 +9,19 @@
     </div>
 
     <div class="nav-center">
-        <a href="/">Accueil</a>
-        <a href="/stages">Offres de stage</a>
-        <a href="/favoris">Favoris</a>
+        <a @onclick="()=>NavTo(endURL[0])" 
+            class="@Class(endURL[0])" 
+            @onclick:preventDefault>Accueil</a>
+        <a @onclick="()=>NavTo(endURL[1])" 
+            class="@Class(endURL[1])" 
+            @onclick:preventDefault>Offres de stage</a>
+        <a @onclick="()=>NavTo(endURL[2])" 
+            class="@Class(endURL[2])" 
+            @onclick:preventDefault>Favoris</a>
         @if (!LoginService.state)
         {
-            <a href="/login">Se connecter</a>
+            <a @onclick="()=>NavTo(endURL[3])" 
+                class="@Class(endURL[3])">Se connecter</a>
         }
         else
         {
@@ -34,15 +41,29 @@
 </nav>
 
 @code {
+    public string[] endURL = ["/","/stages","/favoris","/login"];
+    public int Page = 3;
     protected override void OnInitialized()
     {
         LoginService.OnChange += StateHasChanged;
+        Nav.LocationChanged+=OnLocationChanged;
+    }
+    public void NavTo(string url){
+        Nav.NavigateTo(url);
+    }
+    private void OnLocationChanged(object sender,LocationChangedEventArgs e){
+        StateHasChanged();
+    }
+    public string Class(string url){
+        return Nav.Uri.EndsWith(url)?"active":"";
     }
 
     public void Dispose()
     {
         LoginService.OnChange -= StateHasChanged;
+        Nav.LocationChanged-=OnLocationChanged;
     }
+
     private void Deconnection()
     {
         LoginService.deconnection();

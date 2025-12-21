@@ -16,6 +16,11 @@ a,
     text-decoration: none;
     background-color: #7080b0;
     color: black;
+    border: none;
+}
+a:hover,.logout-btn:hover{
+  cursor: pointer;
+  background-color: #90a0d0;
 }
 .nav-left{
   display:flex;
@@ -45,14 +50,12 @@ a,
   justify-content:flex-end;
 }
 
-.nav-center a:nth-child(2) {
-    background-color: #1b6ec2;
-    color: white;
-    font-weight: 700;
-    box-shadow: 0 8px 20px rgba(27, 110, 194, 0.35);
-    transform: scale(1.05);
+.active{
+  background-color: #1b6ec2;
+  color: white;
+  box-shadow: 0 8px 20px rgba(27, 110, 194, 0.35);
 }
 
-.nav-center a:nth-child(2):hover {
-    background-color: #155a9c;
+.active:hover{
+  background-color: #3b8ee2;
 }
