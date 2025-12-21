@@ -6,59 +6,64 @@
 <PageTitle>InfoStage</PageTitle>
 
 <main>
-    <section class="infosStage">
-        <table class="descStage">
-            <tr>
-                <th>Titre</th>
-                <td>@offre.Titre</td>
-            </tr>
-            <tr>
-                <th>Formation</th>
-                <td>@offre.Domaine</td>
-            </tr>
-            <tr>
-                <th>Laboratoire</th>
-                <td>@offre.Laboratoire</td>
-            </tr>
-            <tr>
-                <th>Duree</th>
-                <td>@offre.Duree mois</td>
-            </tr>
-            <tr>
-                <th>Niveau d'étude</th>
-                <td>BAC+@offre.NbAnnees</td>
-            </tr>
-            <tr>
-                <th>Responsable</th>
-                <td>@offre.NomResponsable</td>
-            </tr>
-        </table>
-        <div class="description">
-            <h2>Description</h2>
-
-            <p class="descDetail">@offre.Description</p>
-        </div>
-    </section>
-    @if (!offre.Favoris){
-        <section>
-            <button class="addfav" @onclick="AddFavoris">Ajouter aux favoris</button>
+    <div class="info-stage">
+        <section class="infosStage">
+            <table class="descStage">
+                <tr>
+                    <th>Titre</th>
+                    <td>@offre.Titre</td>
+                </tr>
+                <tr>
+                    <th>Formation</th>
+                    <td>@offre.Domaine</td>
+                </tr>
+                <tr>
+                    <th>Laboratoire</th>
+                    <td>@offre.Laboratoire</td>
+                </tr>
+                <tr>
+                    <th>Duree</th>
+                    <td>@offre.Duree mois</td>
+                </tr>
+                <tr>
+                    <th>Niveau d'étude</th>
+                    <td>BAC+@offre.NbAnnees</td>
+                </tr>
+                <tr>
+                    <th>Responsable</th>
+                    <td>@offre.NomResponsable</td>
+                </tr>
+            </table>
+            <div class="description">
+                <h2>Description</h2>
+                <p class="descDetail">@offre.Description</p>
+            </div>
         </section>
-    }
+
+        @if (!offre.Favoris)
+        {
+            <section class="info-header">
+                <button class="addfav" @onclick="AddFavoris">Ajouter aux favoris</button>
+            </section>
+        }
+    </div>
 </main>
 
 
 
 
-@code{
+@code {
     [Parameter]
-    public int id {get;set;}
+    public int id { get; set; }
 
-    public Offre? offre {get;set;}
+    public Offre? offre { get; set; }
 
-    protected override void OnInitialized(){
+    protected override void OnInitialized()
+    {
         offre = OffreService.GetOffre(id);
     }
-    public void AddFavoris(){
+    public void AddFavoris()
+    {
         FavorisService.AddFavoris(offre);
     }
 }
